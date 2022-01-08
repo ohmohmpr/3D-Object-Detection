@@ -1,0 +1,17 @@
+darknet model*
+fpn_resnet model*
+pretrained_darknet.zip
+pretrained_fpn-resnet.zip
+misc/__pycache__
+results/
+__MACOSX
+student/__pycache__
+simple_waymo_open_dataset_reader.egg-info
+tools/objdet_models/darknet/utils/__pycache__
+tools/objdet_models/darknet/models/__pycache__
+tools/objdet_models/resnet/models/__pycache__
+tools/objdet_models/resnet/utils/__pycache__
+tools/waymo_reader/simple_waymo_open_dataset_reader/__pycache__
+tools/objdet_models/darknet/pretrained/complex_yolov4_mse_loss.pth
+tools/objdet_models/darknet/pretrained/complex_yolov4.cfg
+tools/objdet_models/resnet/pretrained/fpn_resnet_18_epoch_300.pth

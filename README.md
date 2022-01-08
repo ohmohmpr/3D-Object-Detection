@@ -131,3 +131,7 @@ Parts of this project are based on the following repositories:
 
 ## License
 [License](LICENSE.md)
+
+
+## How to start for ohm
+source ../3-Sensor-Fusion/pylib-sensor-fusion/bin/activate
