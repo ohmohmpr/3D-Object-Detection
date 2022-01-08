@@ -101,36 +101,11 @@ def show_range_image(frame, lidar_name):
     ri_range = ri_range * 255 / (np.amax(ri_range) - np.amin(ri_range))
 
     # step 5 : map the intensity channel onto an 8-bit scale and normalize with the difference between the 1- and 99-percentile to mitigate the influence of outliers
-    # b = np.array([0, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1, 1e+1, 1e+2, 1e+3, 1e+4, 1e+5, 1e+6, 1e+7])
-    # hist,bins = np.histogram(ri_intensity, bins=b)
-    # print("max", np.amax(ri_intensity))
-    # print("min", np.amin(ri_intensity))
-    # print(b)
-    # print(hist)
     ri_intensity_p99 = np.percentile(ri_intensity, 99)
     ri_intensity_p01 = np.percentile(ri_intensity, 1)
-    print("ri_intensity_p99", ri_intensity_p99)
-    print("ri_intensity_p01", ri_intensity_p01)
-    ############################
-    # ri_intensity = ri_intensity * 255 / np.amax(ri_intensity) - np.amin(ri_intensity)
-    ####### used
     ri_intensity[ri_intensity <= ri_intensity_p01] = ri_intensity_p01
     ri_intensity[ri_intensity >= ri_intensity_p99] = ri_intensity_p99
-    # print("shape", ri_intensity.shape)
-    # print("max", np.amax(ri_intensity))
-    # print("min", np.amin(ri_intensity))
-    # b = np.array([0, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1, 1e+1, 1e+2, 1e+3, 1e+4, 1e+5, 1e+6, 1e+7])
-    # hist,bins = np.histogram(ri_intensity, bins=b)
-    print("max", np.amax(ri_intensity))
-    print("min", np.amin(ri_intensity))
-    # print(b)
-    # print(hist)
-    ####### used tilhher
-    
-    
-    # ri_intensity = np.amax(ri_intensity) / 0.5 * ri_intensity * 255 / (np.amax(ri_intensity) - np.amin(ri_intensity))
     ri_intensity = ri_intensity * 255 / (np.amax(ri_intensity) - np.amin(ri_intensity))
-    # ri_intensity = np.amax(ri_intensity) * ri_intensity * 255 / (np.amax(ri_intensity) - np.amin(ri_intensity))
 
     # step 6 : stack the range and intensity image vertically using np.vstack and convert the result to an unsigned 8-bit integer
     img_range_intensity = np.vstack((ri_range, ri_intensity))

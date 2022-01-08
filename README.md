@@ -135,3 +135,4 @@ Parts of this project are based on the following repositories:
 
 ## How to start for ohm
 source ../3-Sensor-Fusion/pylib-sensor-fusion/bin/activate
+pip install /3-Sensor-Fusion/requirements.txt
